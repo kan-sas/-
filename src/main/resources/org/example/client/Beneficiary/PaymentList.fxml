@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.client.Beneficiary.Controller.PaymentListController"
+            prefHeight="600.0" prefWidth="1000.0">
+
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <!-- Заголовок и кнопка назад -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="← Назад" onAction="#handleBack" style="-fx-background-color: #e0e0e0;"/>
+            <Label text="Управление выплатами">
+                <font>
+                    <Font name="System Bold" size="18"/>
+                </font>
+            </Label>
+        </HBox>
+
+        <!-- Остальная часть интерфейса -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Роль: "/>
+            <Label fx:id="roleLabel" text="[Роль]"/>
+            <Button fx:id="refreshButton" text="Обновить"/>
+        </HBox>
+
+        <!-- Таблица выплат -->
+        <TableView fx:id="paymentsTable" prefHeight="400">
+            <columns>
+                <TableColumn text="Тип" prefWidth="100" fx:id="typeColumn"/>
+                <TableColumn text="Сумма" prefWidth="100" fx:id="amountColumn"/>
+                <TableColumn text="Дата" prefWidth="100" fx:id="dateColumn"/>
+                <TableColumn text="Статус" prefWidth="120" fx:id="statusColumn"/>
+                <TableColumn text="Бенефициар" prefWidth="150" fx:id="beneficiaryColumn" visible="false"/>
+                <TableColumn text="Подтвердил" prefWidth="150" fx:id="approverColumn" visible="false"/>
+            </columns>
+        </TableView>
+
+        <!-- Детали выплаты -->
+        <GridPane hgap="10" vgap="5">
+            <Label text="Детали выплаты:">
+                <font>
+                    <Font name="System Bold" size="14"/>
+                </font>
+                <GridPane.rowIndex>0</GridPane.rowIndex>
+                <GridPane.columnSpan>2</GridPane.columnSpan>
+            </Label>
+
+            <Label text="Отдел:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="departmentLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Комментарий:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="commentLabel" wrapText="true" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Обновленная панель действий с кнопками редактирования и удаления -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="editButton" text="Редактировать" visible="false"/>
+            <Button fx:id="deleteButton" text="Удалить" visible="false" style="-fx-background-color: #ffcccc;"/>
+            <Button fx:id="approveButton" text="Подтвердить" visible="false"/>
+            <Button fx:id="rejectButton" text="Отклонить" visible="false" style="-fx-background-color: #ffcccc;"/>
+            <Button fx:id="detailsButton" text="Подробнее" visible="false"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

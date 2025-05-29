@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.client.User.Controller.ProfileController"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-padding: 20;">
+
+    <!-- Кнопка "Назад" в правом нижнем углу -->
+    <Button text="Назад"
+            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+            onAction="#handleBackToMainMenu"
+            AnchorPane.bottomAnchor="10"
+            AnchorPane.rightAnchor="10"/>
+
+    <VBox spacing="15" prefWidth="500">
+        <Label text="Профиль пользователя" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+        <!-- Основная информация -->
+        <VBox spacing="5" style="-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 5;">
+            <Label text="Текущая информация:" style="-fx-font-weight: bold;"/>
+            <Label fx:id="usernameLabel" text="Логин: "/>
+            <Label fx:id="emailLabel" text="Email: "/>
+            <Label fx:id="phoneLabel" text="Телефон: "/>
+        </VBox>
+
+        <!-- Смена пароля -->
+        <VBox spacing="5" style="-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 5;">
+            <Label text="Смена пароля:" style="-fx-font-weight: bold;"/>
+            <PasswordField fx:id="currentPasswordField" promptText="Текущий пароль"/>
+            <PasswordField fx:id="newPasswordField" promptText="Новый пароль"/>
+            <Button text="Изменить пароль" onAction="#handleUpdatePassword"/>
+        </VBox>
+
+        <!-- Смена контактных данных -->
+        <VBox spacing="5" style="-fx-padding: 10; -fx-border-color: #ddd; -fx-border-radius: 5;">
+            <Label text="Контактные данные:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="emailField" promptText="Новый email"/>
+            <TextField fx:id="phoneField" promptText="Новый телефон"/>
+            <Button text="Обновить контакты" onAction="#handleUpdateContacts"/>
+        </VBox>
+
+        <!-- Управление профилем -->
+        <Button text="Удалить профиль"
+                style="-fx-background-color: #ff4444; -fx-text-fill: white;"
+                onAction="#handleDeleteProfile"/>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: red;"/>
+    </VBox>
+</AnchorPane>

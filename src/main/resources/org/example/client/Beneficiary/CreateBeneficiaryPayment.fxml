@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.client.Beneficiary.Controller.CreateBeneficiaryPaymentController"
+            prefWidth="400"
+            prefHeight="400">
+    <VBox spacing="10" style="-fx-padding: 20px;">
+        <Label text="Новая заявка на выплату" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="10" vgap="10">
+            <!-- Строка 0: Сумма -->
+            <Label text="Сумма:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="amountField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- Строка 1: Тип выплаты -->
+            <Label text="Тип выплаты:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="typeComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- Строка 2: Отдел -->
+            <Label text="Отдел:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="departmentField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <!-- Строка 3: Комментарий -->
+            <Label text="Комментарий:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextArea fx:id="commentArea" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Отмена"
+                    onAction="#handleCancel"
+                    style="-fx-background-color: #cccccc;"/>
+            <Button text="Создать"
+                    onAction="#handleSubmit"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.client.User.Controller.AuthController"
+            prefWidth="600" prefHeight="400">
+
+    <!-- Центрируем содержимое через привязку к центру AnchorPane -->
+    <VBox fx:id="mainContainer"
+          alignment="CENTER"
+          spacing="15"
+          AnchorPane.topAnchor="0"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0">
+
+        <!-- Форма входа -->
+        <VBox fx:id="loginForm"
+              alignment="CENTER"
+              spacing="10"
+              maxWidth="350"
+              visible="true">
+
+            <Label text="Авторизация"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <TextField fx:id="loginUsername"
+                       promptText="Логин"
+                       maxWidth="300"/>
+
+            <PasswordField fx:id="loginPassword"
+                           promptText="Пароль"
+                           maxWidth="300"/>
+
+            <Button text="Войти"
+                    onAction="#handleLogin"
+                    defaultButton="true"
+                    prefWidth="200"/>
+
+            <Hyperlink text="Нет аккаунта? Зарегистрируйтесь"
+                       onAction="#switchToRegister"/>
+        </VBox>
+
+        <!-- Форма регистрации -->
+        <VBox fx:id="registerForm"
+              alignment="CENTER"
+              spacing="10"
+              maxWidth="350"
+              visible="false">
+
+            <Label text="Регистрация"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <TextField fx:id="regFirstName"
+                       promptText="Имя"
+                       maxWidth="300"/>
+
+            <TextField fx:id="regLastName"
+                       promptText="Фамилия"
+                       maxWidth="300"/>
+
+            <TextField fx:id="regUsername"
+                       promptText="Логин"
+                       maxWidth="300"/>
+
+            <PasswordField fx:id="regPassword"
+                           promptText="Пароль"
+                           maxWidth="300"/>
+
+            <ComboBox fx:id="regRoleComboBox"
+                      promptText="Роль"
+                      maxWidth="300"/>
+
+            <Button text="Зарегистрироваться"
+                    onAction="#handleRegister"
+                    defaultButton="true"
+                    prefWidth="200"/>
+
+            <Hyperlink text="Уже есть аккаунт? Войдите"
+                       onAction="#switchToLogin"/>
+        </VBox>
+
+        <!-- Статусное сообщение -->
+        <Label fx:id="statusMessage"
+               style="-fx-font-size: 14px; -fx-text-fill: red; -fx-font-weight: bold;"
+               wrapText="true"
+               maxWidth="350"
+               alignment="CENTER"/>
+
+    </VBox>
+</AnchorPane>

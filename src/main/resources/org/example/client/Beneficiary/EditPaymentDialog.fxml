@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.client.Beneficiary.Controller.EditPaymentDialogController">
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <Label text="Сумма:"     GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="amountField"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Тип:"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="typeCombo"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"
+                      promptText="Выберите тип"/>
+
+            <Label text="Отдел:"     GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="departmentField"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Комментарий:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextArea fx:id="commentArea"
+                      GridPane.rowIndex="3" GridPane.columnIndex="1"
+                      prefRowCount="3"/>
+        </GridPane>
+    </content>
+
+    <buttonTypes>
+        <ButtonType buttonData="APPLY" text="Сохранить изменения"/>
+        <ButtonType buttonData="CANCEL_CLOSE" text="Отмена"/>
+    </buttonTypes>
+</DialogPane>

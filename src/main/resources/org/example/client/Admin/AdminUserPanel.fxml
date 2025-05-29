@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.client.Admin.Controller.AdminUserPanelController"
+            prefHeight="600.0"
+            prefWidth="1000.0"
+            style="-fx-background-color: #F0F8FF;">
+
+    <VBox spacing="15" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="15" AnchorPane.rightAnchor="15">
+        <!-- Панель управления -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Назад" onAction="#handleBack"
+                    style="-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+
+            <Button text="Сохранить" onAction="#handleSaveChanges"
+                    style="-fx-background-color: #32CD32; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+
+            <Button text="Удалить" onAction="#handleDeleteUser"
+                    style="-fx-background-color: #FF4500; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+
+            <Button text="Обновить" onAction="#handleRefresh"
+                    style="-fx-background-color: #20B2AA; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+
+            <Button text="Сбросить" onAction="#handleReset"
+                    style="-fx-background-color: #DAA520; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15;"/>
+        </HBox>
+
+        <!-- Панель фильтров -->
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #FFFFFF; -fx-padding: 10; -fx-border-color: #D3D3D3;">
+            <Label text="Поиск:" style="-fx-font-weight: bold; -fx-text-fill: #2F4F4F;"/>
+            <TextField fx:id="searchField" promptText="Поиск по всем полям..."
+                       style="-fx-border-color: #D3D3D3; -fx-border-radius: 4;"
+                       prefWidth="300" onKeyReleased="#handleSearch"/>
+
+            <Label text="Фильтр по роли:" style="-fx-font-weight: bold; -fx-text-fill: #2F4F4F;"/>
+            <ComboBox fx:id="roleFilterCombo"
+                      style="-fx-border-color: #D3D3D3; -fx-background-radius: 4;"
+                      prefWidth="150"/>
+        </HBox>
+
+        <!-- Таблица пользователей -->
+        <TableView fx:id="usersTable" style="-fx-border-color: #D3D3D3; -fx-border-radius: 5;" prefHeight="500">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50"
+                             style="-fx-font-weight: bold; -fx-alignment: CENTER;"/>
+                <TableColumn fx:id="usernameColumn" text="Логин" prefWidth="120"/>
+                <TableColumn fx:id="firstNameColumn" text="Имя" prefWidth="120"/>
+                <TableColumn fx:id="lastNameColumn" text="Фамилия" prefWidth="120"/>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="200"/>
+                <TableColumn fx:id="phoneNumberColumn" text="Телефон" prefWidth="120"/>
+                <TableColumn fx:id="roleColumn" text="Роль" prefWidth="100"
+                             style="-fx-font-weight: bold; -fx-alignment: CENTER;"/>
+            </columns>
+            <style>
+                -fx-font-size: 14px;
+                -fx-table-cell-border-color: transparent;
+            </style>
+        </TableView>
+    </VBox>
+</AnchorPane>

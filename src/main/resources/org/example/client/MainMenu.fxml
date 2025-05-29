@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.client.User.Controller.MainMenuController"
+            prefWidth="800"
+            prefHeight="600">
+
+    <!-- Левое меню с fx:id для доступа из контроллера -->
+    <left>
+        <VBox fx:id="leftMenuVBox" spacing="10" style="-fx-padding: 10px; -fx-background-color: #f4f4f4;">
+            <!-- Заголовок с fx:id для изменения текста -->
+            <Label fx:id="menuTitle" text="Меню получателя" style="-fx-font-weight: bold;"/>
+            <Separator/>
+
+            <!-- Кнопки с fx:id для управления видимостью -->
+            <Button text="Создать заявку"
+                    fx:id="btnCreatePayment"
+                    onAction="#handleCreatePayment"
+                    prefWidth="150"/>
+
+            <Button text="Редактировать аккаунт"
+                    fx:id="btnEditAccount"
+                    onAction="#handleEditAccount"
+                    prefWidth="150"/>
+
+            <Button text="Мои выплаты"
+                    fx:id="btnViewPayments"
+                    onAction="#handleViewPayments"
+                    prefWidth="150"/>
+
+            <Separator/>
+
+            <!-- Кнопка выхода -->
+            <Button text="Выход"
+                    fx:id="btnLogout"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: #ff4444; -fx-text-fill: white;"
+                    prefWidth="150"/>
+        </VBox>
+    </left>
+
+    <!-- Основная контентная область -->
+    <center>
+        <AnchorPane fx:id="contentArea">
+            <Label text="Добро пожаловать!"
+                   style="-fx-font-size: 20px;"
+                   AnchorPane.topAnchor="20"
+                   AnchorPane.leftAnchor="20"/>
+        </AnchorPane>
+    </center>
+
+</BorderPane>
